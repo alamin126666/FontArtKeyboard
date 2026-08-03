@@ -36,7 +36,7 @@ jobs:
           cache: gradle
 
       - name: 🔑 Grant execute permission for gradlew
-        run: chmod +x FontsArtKeyboard/gradlew
+        run: chmod +x gradlew
 
       - name: 📦 Cache Gradle packages
         uses: actions/cache@v4
@@ -53,16 +53,13 @@ jobs:
 
       - name: 🏗️ Build Debug APK
         if: github.event.inputs.build_type != 'release'
-        working-directory: FontsArtKeyboard
         run: ./gradlew assembleDebug --stacktrace
 
       - name: 🚀 Build Release APK
         if: github.event.inputs.build_type == 'release'
-        working-directory: FontsArtKeyboard
         run: ./gradlew assembleRelease --stacktrace
 
       - name: 📊 Run Unit Tests
-        working-directory: FontsArtKeyboard
         run: ./gradlew test --stacktrace
         continue-on-error: true
 
@@ -71,7 +68,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: fonts-art-keyboard-debug-${{ github.run_number }}
-          path: FontsArtKeyboard/app/build/outputs/apk/debug/*.apk
+          path: app/build/outputs/apk/debug/*.apk
           retention-days: 30
 
       - name: 📤 Upload Release APK
@@ -79,7 +76,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: fonts-art-keyboard-release-${{ github.run_number }}
-          path: FontsArtKeyboard/app/build/outputs/apk/release/*.apk
+          path: app/build/outputs/apk/release/*.apk
           retention-days: 90
 
   lint:
@@ -99,10 +96,9 @@ jobs:
           cache: gradle
 
       - name: 🔑 Grant execute permission for gradlew
-        run: chmod +x FontsArtKeyboard/gradlew
+        run: chmod +x gradlew
 
       - name: 🔎 Run Lint
-        working-directory: FontsArtKeyboard
         run: ./gradlew lint --stacktrace
         continue-on-error: true
 
@@ -111,7 +107,7 @@ jobs:
         if: always()
         with:
           name: lint-results-${{ github.run_number }}
-          path: FontsArtKeyboard/app/build/reports/lint-results-debug.html
+          path: app/build/reports/lint-results-debug.html
           retention-days: 7
 
   release:
@@ -132,16 +128,15 @@ jobs:
           cache: gradle
 
       - name: 🔑 Grant execute permission for gradlew
-        run: chmod +x FontsArtKeyboard/gradlew
+        run: chmod +x gradlew
 
       - name: 🚀 Build Release APK
-        working-directory: FontsArtKeyboard
         run: ./gradlew assembleRelease
 
       - name: 📦 Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
-          files: FontsArtKeyboard/app/build/outputs/apk/release/*.apk
+          files: app/build/outputs/apk/release/*.apk
           generate_release_notes: true
           name: "Fonts Art Keyboard ${{ github.ref_name }}"
           body: |
