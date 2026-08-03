@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="Appearance">
+        <SwitchPreference
+            android:key="dark_mode"
+            android:title="Dark Mode"
+            android:summary="Use dark theme"
+            android:defaultValue="false" />
+
+        <ListPreference
+            android:key="selected_theme_id"
+            android:title="Keyboard Theme"
+            android:summary="Choose a keyboard theme"
+            android:defaultValue="default" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Keyboard Behavior">
+        <SwitchPreference
+            android:key="sound_enabled"
+            android:title="Key Press Sound"
+            android:summary="Play sound on key press"
+            android:defaultValue="true" />
+
+        <SwitchPreference
+            android:key="vibration_enabled"
+            android:title="Vibration"
+            android:summary="Vibrate on key press"
+            android:defaultValue="true" />
+
+        <SwitchPreference
+            android:key="auto_suggestion_enabled"
+            android:title="Auto Suggestion"
+            android:summary="Show word suggestions"
+            android:defaultValue="true" />
+
+        <SwitchPreference
+            android:key="autocorrect_enabled"
+            android:title="Auto Correct"
+            android:summary="Correct misspelled words automatically"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Fonts">
+        <ListPreference
+            android:key="selected_font_id"
+            android:title="Default Font Style"
+            android:summary="Choose default font for keyboard output"
+            android:defaultValue="normal" />
+
+        <SwitchPreference
+            android:key="unicode_font_enabled"
+            android:title="Unicode Font Mode"
+            android:summary="Type in fancy Unicode fonts directly"
+            android:defaultValue="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Language">
+        <ListPreference
+            android:key="current_language"
+            android:title="Default Language"
+            android:entries="@array/language_names"
+            android:entryValues="@array/language_codes"
+            android:defaultValue="en" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

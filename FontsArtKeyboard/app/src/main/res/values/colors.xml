@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_primary">#6750A4</color>
+    <color name="purple_secondary">#9C89B8</color>
+    <color name="surface_light">#FFFBFE</color>
+    <color name="surface_dark">#1C1B1F</color>
+    <color name="keyboard_bg_light">#E6E0E9</color>
+    <color name="keyboard_bg_dark">#2B2930</color>
+    <color name="key_bg_light">#FFFFFF</color>
+    <color name="key_bg_dark">#48464C</color>
+    <color name="key_text_light">#1C1B1F</color>
+    <color name="key_text_dark">#E6E0E9</color>
+</resources>

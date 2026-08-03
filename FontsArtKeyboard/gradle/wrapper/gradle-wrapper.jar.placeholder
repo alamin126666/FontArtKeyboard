@@ -1,0 +1,4 @@
+Download the Gradle wrapper JAR by running:
+./gradlew wrapper
+
+Or open the project in Android Studio — it will download automatically.
